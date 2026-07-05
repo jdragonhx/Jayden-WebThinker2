@@ -1,0 +1,16 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "ms-vsliveshare.vsliveshare",
+        "vsls-contrib.gitdoc"
+      ],
+      "settings": {
+          "gitdoc.enabled": true,
+          "git.autofetch": true,
+          "gitdoc.autoCommitDelay": 5000
+      }
+    }
+  }
+}
