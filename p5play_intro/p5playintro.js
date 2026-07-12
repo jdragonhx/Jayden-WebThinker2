@@ -19,4 +19,4 @@ function setup() {
   box.color = "green";
 }
 
-functiondraw()
+function draw()
