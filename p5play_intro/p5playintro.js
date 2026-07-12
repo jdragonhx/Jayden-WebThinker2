@@ -18,3 +18,5 @@ function setup() {
   box.height = 50;
   box.color = "green";
 }
+
+functiondraw()
