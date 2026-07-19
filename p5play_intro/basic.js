@@ -4,6 +4,7 @@ let area;
 
 function setup() {
   console.log("my name is jayden");  //print statment
+  new Canvas(800, 400);
   
   let base = 10;
   let height = 5;
