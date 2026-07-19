@@ -34,7 +34,10 @@ function setup() {
   console.log("Sum of first 10 even numbers is: " + sum);
   text("Sum of first 10 even numbers is: " + sum, 300, 150);
 
-  //print the equasion of the sum of 
+  //print the equasion of the sum of the first 10 even numbers
+
+  console.log("Equation: 2 + 4 + 6 + 8 + 10 + 12 + 14 + 16 + 18 + 20 = " + sum);
+  
 
   // --- Exercise: Age category classification ---
   // write your codes here
