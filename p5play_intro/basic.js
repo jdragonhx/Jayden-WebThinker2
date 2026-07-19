@@ -93,7 +93,10 @@ function setup() {
   groceries.splice(groceries.indexOf("milk"), 1, "kaya");
   console.log(groceries);
 
-  //
+  //print the final list
+  console.log("Final list of groceries: " + groceries);
+
+  //display 
 }
 
 // gambling game
