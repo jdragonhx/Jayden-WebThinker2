@@ -84,7 +84,12 @@ function setup() {
   groceries.push("butter");
   console.log(groceries);
 
-  //remove first item apple 
+  //remove first item apple using shift
+
+  groceries.shift();
+  console.log(groceries);
+
+  //change milk
 }
 
 // gambling game
