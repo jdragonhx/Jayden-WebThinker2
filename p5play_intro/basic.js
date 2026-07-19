@@ -83,7 +83,9 @@ function setup() {
   groceries.splice(groceries.indexOf("oranges"), 1);
   console.log("After removing oranges:", groceries);
   text("After removing oranges: " + groceries.join(", "), 300, 410);
-  
+
 
 }
+
+// gambling game
 
