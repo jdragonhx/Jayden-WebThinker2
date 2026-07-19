@@ -18,7 +18,9 @@ function setup() {
   // --- Exercise: Area of Triangle ---
   // write your codes here
 
-  ate
+  area = 0.5 * base * height;
+  console.log("Area of triangle is: " + area);
+  text("Area of triangle is: " + area, 300, 100);
 
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
