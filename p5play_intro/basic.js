@@ -25,6 +25,15 @@ function setup() {
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
 
+  let sum = 0;
+  let i = 2;
+  while (i <= 20) {
+    sum += i;
+    i += 2;
+  }
+  console.log("Sum of first 10 even numbers is: " + sum);
+  text("Sum of first 10 even numbers is: " + sum, 300, 150);
+
   // --- Exercise: Age category classification ---
   // write your codes here
 
