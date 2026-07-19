@@ -96,7 +96,10 @@ function setup() {
   //print the final list
   console.log("Final list of groceries: " + groceries);
 
-  //display 
+  //display each item
+  for (let i = 0; i < groceries.length; i++) {
+    text(groceries[i], 300, 350 + i * 20);
+  }
 }
 
 // gambling game
