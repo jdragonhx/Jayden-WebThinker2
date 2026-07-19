@@ -72,7 +72,7 @@ function setup() {
   // write your codes here
 
   let groceries = ["apple", "bread", "milk"];
-  console.log
+  console.log(groceries);
 }
 
 // gambling game
