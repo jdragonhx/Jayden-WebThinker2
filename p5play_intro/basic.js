@@ -43,7 +43,20 @@ function setup() {
   // --- Exercise: Age category classification ---
   // write your codes here
 
-  let score 
+  let score = 100;
+  if (score >= 90) {
+    console.log("Grade: A");
+    text("Grade: A", 300, 250);
+  }
+  else if (score >= 80) {
+    console.log("Grade: B");
+    text("Grade: B", 300, 250);
+  }
+  else {
+    console.log("Grade: C");
+    text("Grade: C", 300, 250);
+  }
+  
 
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
