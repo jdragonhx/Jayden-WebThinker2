@@ -4,7 +4,7 @@ function setup() {
   let height = 5;
   let area;
   area = 0.5 * base * height;
-  console.lod
+  console.log("Area of triangle is: " + area);
 
   // write your codes here
 
