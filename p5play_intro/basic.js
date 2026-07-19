@@ -79,7 +79,12 @@ function setup() {
   groceries.push("orange");
   console.log(groceries);
 
-  //
+  //add butter to list
+
+  groceries.push("butter");
+  console.log(groceries);
+
+  
 }
 
 // gambling game
