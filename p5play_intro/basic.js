@@ -71,6 +71,9 @@ function setup() {
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
 
+  let groceries = ["apples", "bananas", "oranges", "grapes"];
+  console.log("Original array:", groceries);
+  text("Original array: " + groceries.join(", "), 300, 350);
   
 
 }
