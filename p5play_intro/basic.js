@@ -71,19 +71,7 @@ function setup() {
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
 
-  let groceries = ["apples", "bananas", "oranges", "grapes"];
-  console.log("Original array:", groceries);
-  text("Original array: " + groceries.join(", "), 300, 350);
-  groceries.push("milk");
-  console.log("After adding milk:", groceries);
-  text("After adding milk: " + groceries.join(", "), 300, 370);
-  groceries.splice(groceries.indexOf("bananas"), 1);
-  console.log("After removing bananas:", groceries);
-  text("After removing bananas: " + groceries.join(", "), 300, 390);
-  groceries.splice(groceries.indexOf("oranges"), 1);
-  console.log("After removing oranges:", groceries);
-  text("After removing oranges: " + groceries.join(", "), 300, 410);
-
+  let groceries = ["milk", "eggs", "bread", "cheese", "fruits"];
 
 }
 
