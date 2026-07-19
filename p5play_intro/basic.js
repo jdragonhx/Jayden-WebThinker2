@@ -56,6 +56,7 @@ function setup() {
     console.log("Grade: C");
     text("Grade: C", 300, 250);
   }
+
   
 
   // --- Exercise: Display odd numbers backward using while loop ---
