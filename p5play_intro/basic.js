@@ -84,7 +84,7 @@ function setup() {
   groceries.push("butter");
   console.log(groceries);
 
-  
+  //
 }
 
 // gambling game
