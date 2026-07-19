@@ -1,6 +1,6 @@
 function setup() {
-  console.log("my name is jayden");
-  //print statment
+  console.log("my name is jayden");  //print statment
+  
   
   // write your codes here
 
