@@ -89,7 +89,9 @@ function setup() {
   groceries.shift();
   console.log(groceries);
 
-  //change milk
+  //change milk to kaya using splice
+  groceries.splice(groceries.indexOf("milk"), 1, "kaya");
+  console.log(groceries);
 }
 
 // gambling game
