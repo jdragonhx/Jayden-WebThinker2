@@ -74,7 +74,12 @@ function setup() {
   let groceries = ["apple", "bread", "milk"];
   console.log(groceries);
 
-  
+  //add orange to list
+
+  groceries.push("orange");
+  console.log(groceries);
+
+  //
 }
 
 // gambling game
