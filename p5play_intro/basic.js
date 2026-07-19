@@ -43,7 +43,7 @@ function setup() {
   // --- Exercise: Age category classification ---
   // write your codes here
 
-  
+  let score 
 
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
