@@ -1,6 +1,9 @@
 function setup() {
   console.log("my name is jayden");  //print statment
-  let base
+  let base = 10;
+  let height = 5;
+  let area;
+  
 
   // write your codes here
 
