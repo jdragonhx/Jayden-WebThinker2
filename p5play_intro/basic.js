@@ -65,7 +65,9 @@ function setup() {
     console.log(oddNum);
     text(oddNum, 300, 300 + (19 - oddNum) * 20);
     oddNum -= 2;
+    
   }
+
 
 
   // --- Exercise: Array operations (groceries) ---
