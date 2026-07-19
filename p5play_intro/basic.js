@@ -98,7 +98,7 @@ function setup() {
 
   //display each item
   for (let i = 0; i < groceries.length; i++) {
-    text(groceries[i], 350 + i * 20,320);
+    text(groceries[i], 350 + i * 50,320);
   }
 }
 
