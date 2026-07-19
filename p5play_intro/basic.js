@@ -63,10 +63,9 @@ function setup() {
   let oddNum = 19;
   while (oddNum >= 1) {
     console.log(oddNum);
-    text(oddNum, 300 + (19 - oddNum) * 20, 300 + (19 - oddNum) * 20);
+    text(oddNum, 300 + (19 - oddNum) * 20, 300);
     oddNum -= 2;
   }
-(19 - oddNum)
 
 
   // --- Exercise: Array operations (groceries) ---
