@@ -1,5 +1,5 @@
 function setup() {
-  
+  console.log("my name ")
   // write your codes here
 
   // --- Exercise: Area of Triangle ---
