@@ -66,7 +66,7 @@ function setup() {
     text(oddNum, 300, 300 + (19 - oddNum) * 20);
     oddNum -= 2;
   }
-
+(19 - oddNum)
 
 
   // --- Exercise: Array operations (groceries) ---
