@@ -73,6 +73,8 @@ function setup() {
 
   let groceries = ["apple", "bread", "milk"];
   console.log(groceries);
+
+  
 }
 
 // gambling game
