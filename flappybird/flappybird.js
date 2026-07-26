@@ -1,1 +1,1 @@
-// the final game
+// Flappy Bird
