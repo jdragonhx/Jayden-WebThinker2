@@ -1,11 +1,11 @@
 // Flappy Bird
 
-function Setup() {
+function setup() {
     createCanvas(400, 600);
     background('white');
     }
 
-function Draw() {
+function draw() {
     background('white');
     fill('black');
     textSize(20);
