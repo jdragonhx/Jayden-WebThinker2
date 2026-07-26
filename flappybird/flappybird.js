@@ -109,3 +109,12 @@ function resetGame() {
     loop();
 }
 
+function mousePressed() {
+    resetGame();
+}
+
+function keyPressed() {
+    if (key === ' ') {
+        bird.up();
+    }
+}
