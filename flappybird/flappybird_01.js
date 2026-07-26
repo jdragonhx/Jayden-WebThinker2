@@ -1,7 +1,7 @@
 // Flappy Bird
 
 let bird, floor;
-let flapMidImg,
+let flapMidImg, bh, base
 
 function setup() {
     createCanvas(400, 600);
