@@ -2,6 +2,7 @@
 
 function Setup() {
     createCanvas(400, 600);
+    background(0);
     bird = new Bird();
     pipes = [];
     pipes.push(new Pipe());
