@@ -118,3 +118,4 @@ function keyPressed() {
         bird.up();
     }
 }
+
