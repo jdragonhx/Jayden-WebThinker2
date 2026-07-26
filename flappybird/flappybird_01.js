@@ -1,6 +1,6 @@
 // Flappy Bird
 
-
+let bird, floor;
 
 function setup() {
     createCanvas(400, 600);
