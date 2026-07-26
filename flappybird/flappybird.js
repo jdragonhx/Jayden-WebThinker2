@@ -1,7 +1,7 @@
 // Flappy Bird
 
-function Setup() {
-    createCanvas(400, 600);
+function setup() {
+    createCanvas(600, 600);
     background(100);
     bird = new Bird();
     pipes = [];
