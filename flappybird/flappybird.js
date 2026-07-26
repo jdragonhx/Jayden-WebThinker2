@@ -2,14 +2,14 @@
 
 function Setup() {
     createCanvas(400, 600);
-    background(220);
+    background(100);
     bird = new Bird();
     pipes = [];
     pipes.push(new Pipe());
     }
 
 function draw() {
-    background(0);
+    background(100);
     bird.update();
     bird.show();
     
