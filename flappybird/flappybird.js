@@ -92,3 +92,20 @@ function Pipe() {
         return (this.x < -this.w);
     }
 }
+
+function hits(bird) {
+    for (let i = 0; i < pipes.length; i++) {
+        if (pipes[i].hits(bird)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function resetGame() {
+    bird = new Bird();
+    pipes = [];
+    frameCount = 0;
+    loop();
+}
+
