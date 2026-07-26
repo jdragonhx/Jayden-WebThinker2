@@ -35,7 +35,8 @@ function draw() {
 }
 
 function keyPressed() {
-    if (key === ' ') {
+    if (key === ' ' || keyCode === UP_ARROW
+    ) {
         bird.up();
     }
 }   
