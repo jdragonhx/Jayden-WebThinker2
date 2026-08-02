@@ -10,8 +10,7 @@ function preload() {
 function setup() {
     new Canvas(400, 600);
 
-    new Sprite();
-    bird = newsprite()
+    bird = new Sprite()
     bird.x = width / 2;
     bird.y = 200;
     bird.width = 30;
