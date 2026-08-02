@@ -8,5 +8,6 @@ function preload() {
 }
 
 function setup() {
-    new Sprite()
+    new Sprite();
+    bird.x 
 }
