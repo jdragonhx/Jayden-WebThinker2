@@ -8,5 +8,5 @@ function preload() {
 }
 
 function setup() {
-    new S
+    new Sprite()
 }
