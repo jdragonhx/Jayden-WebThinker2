@@ -42,5 +42,6 @@ function draw() {
         bird.sleeping = false;
     }
 
-    
+    FileList()
+
 }
