@@ -11,6 +11,7 @@ function setup() {
     new Canvas(400, 600);
 
     new Sprite();
+    bird = newsprite()
     bird.x = width / 2;
     bird.y = 200;
     bird.width = 30;
