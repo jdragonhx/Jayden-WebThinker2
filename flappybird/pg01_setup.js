@@ -17,6 +17,6 @@ function setup() {
 }
 
 function draw() {
-    ImageBitmapRenderingContext(bg, 0, 0, width, height);
+    image(bg, 0, 0, width, height);
 }
 
