@@ -29,7 +29,7 @@ function setup() {
     floor.y = height - 20;
     floor.width = 400;
     floor.height = 400;
-    floor
+    floor.collider = ""
 }
 
 function draw() {
