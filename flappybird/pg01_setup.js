@@ -8,6 +8,8 @@ function preload() {
 }
 
 function setup() {
+    new
+
     new Sprite();
     bird.x = width / 2;
     bird.y = 200;
