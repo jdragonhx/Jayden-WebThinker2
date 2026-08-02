@@ -16,3 +16,6 @@ function setup() {
     bird.img = flapMidImg;
 }
 
+function draw() {
+    ImageBitmapRenderingContext(bg, 0, 0)
+}
