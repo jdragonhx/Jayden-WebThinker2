@@ -8,7 +8,7 @@ function preload() {
 }
 
 function setup() {
-    new
+    new CanvasCaptureMediaStreamTrack(400)
 
     new Sprite();
     bird.x = width / 2;
