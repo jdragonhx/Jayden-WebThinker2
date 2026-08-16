@@ -1,4 +1,5 @@
-
+let pipe;
+let
 let pipeGroup;
 let bird, floor;
 let flapMidImg, bg, base;
