@@ -67,4 +67,42 @@ function draw() {
         bird.rotation = 0;
     }
 
+    if (frameCount === 1) {
+        for (let i = 0; i < 3; i++) {
+            let pipeTop = new Sprite();
+            pipeTop.width = 50;
+            pipeTop.height = random(100, 300);
+            pipeTop.x = width + i * 200;
+            pipeTop.y = 0;
+            pipeTop.collider = "static";
+            pipeTop.img = loadImage('assets/pipe-green.png');
+            pipeGroup.add(pipeTop);
+
+            let pipeBottom = new Sprite();
+            pipeBottom.width = 50;
+            pipeBottom.height = height - (pipeTop.height + 150);
+            pipeBottom.x = width + i * 200;
+            pipeBottom.y = height - pipeBottom.height;
+            pipeBottom.collider = "static";
+            pipeBottom.img = loadImage('assets/pipe-green.png');
+            pipeGroup.add(pipeBottom);
+        }
+    }
+
+    for (let i = 0; i < pipeGroup.length; i++) {
+        let pipe = pipeGroup[i];
+        pipe.vel.x = -2;
+
+        if (pipe.x < -50) {
+            pipe.x = width + 200;
+            if (pipe.y === 0) {
+                pipe.height = random(100, 300);
+            } else {
+                let topPipe = pipeGroup[i - 1];
+                pipe.height = height - (topPipe.height + 150);
+                pipe.y = height - pipe.height;
+            }
+        }
+    }
+
 }
