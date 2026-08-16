@@ -74,6 +74,7 @@ function draw() {
 }
 
 function spawnPipepair() {
-    l
+    let pipe;
+    let bottomp
 }
     
