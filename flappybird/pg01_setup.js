@@ -68,7 +68,12 @@ function draw() {
     }
 
     if (frameCount === 1) {
-        spawnPipe();
+        spawnPipepair();
     }
 
 }
+
+function spawnPipepair() {
+    l
+}
+    
