@@ -88,5 +88,9 @@ function spawnPipePair(){
     pipeGroup.layer = 0;
 
     topPipe = new Sprite(400, midY - gap / 2 - 200, 52, 320, 'static');
+    topPipe.img = pipe;
+    topPipe.rotation = 180;
+
+    pipe
 }
     
