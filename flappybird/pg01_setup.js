@@ -77,6 +77,7 @@ function draw() {
 }
 
 function spawnPipepair() {
-    let gap = 50
+    let gap = 50;
+    let midY
 }
     
