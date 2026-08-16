@@ -1,3 +1,4 @@
+
 let pipeGroup;
 let bird, floor;
 let flapMidImg, bg, base;
@@ -74,7 +75,6 @@ function draw() {
 }
 
 function spawnPipepair() {
-    let pipe;
-    let bottomp
+
 }
     
