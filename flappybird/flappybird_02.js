@@ -51,7 +51,8 @@ function draw() {
     text('sleeping:' + bird.sleeping , 10, 60);
 
     if (bird.vel.y < -1) {
-        bird.img
+        bird.img = flapUpImg;
+        
     }
 
 }
