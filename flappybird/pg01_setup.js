@@ -93,11 +93,11 @@ function draw() {
             spawnPipePair();
         }
 
-        bird.x += 3;
-        camera.x = bird.x;
-        floor.x = bird.x;
+            bird.x += 3;
+            camera.x = bird.x;
+            floor.x = bird.x;
 
-        if (frameCount % 90 === 0){
+            if (frameCount % 90 === 0){
             spawnPipePair();
         }
 
