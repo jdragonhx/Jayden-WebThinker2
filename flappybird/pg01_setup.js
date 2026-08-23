@@ -83,6 +83,12 @@ function draw() {
         spawnPipePair();
     }
 
+    for (let pipe of pipeGroup){
+        if (pipe.x < -50){
+            
+        }
+    }
+
 }
 
 function spawnPipePair(){
