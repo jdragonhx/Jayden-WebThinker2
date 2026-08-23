@@ -75,6 +75,8 @@ function draw() {
         spawnPipePair();
     }
 
+    bird.x += 3;
+
 }
 
 function spawnPipePair(){
