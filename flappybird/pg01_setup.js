@@ -98,12 +98,12 @@ function draw() {
         floor.x = bird.x;
 
         if (frameCount % 90 === 0){
-     spawnPipePair();
+            spawnPipePair();
     }
 
-    for (let pipe of pipeGroup){
-        if (pipe.x < -50){
-            pipe.remove();
+        for (let pipe of pipeGroup){
+            if (pipe.x < -50){
+                pipe.remove();
         }
     }
 
