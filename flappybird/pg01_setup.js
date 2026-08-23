@@ -87,11 +87,11 @@ function draw() {
         else {
             bird.img = flapMidImg;
             bird.rotation = 0;
-    }
+        }
 
         if (frameCount === 1) {
             spawnPipePair();
-    }
+        }
 
         bird.x += 3;
         camera.x = bird.x;
@@ -99,13 +99,13 @@ function draw() {
 
         if (frameCount % 90 === 0){
             spawnPipePair();
-    }
+        }
 
         for (let pipe of pipeGroup){
             if (pipe.x < -50){
                 pipe.remove();
+            }
         }
-    }
 
     if (bird.collides(pipeGroup) || bird.collides(floor)){
         gameoverLabel = new Sprite (width/2, height/2, 192, 42);
