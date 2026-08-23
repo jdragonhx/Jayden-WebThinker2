@@ -6,7 +6,8 @@ let bird, floor;
 let flapMidImg, bg, base;
 let gameoverImg;
 let gameoverLabel;
-
+let startScreenLabel;
+let 
 
 function preload() {
     flapMidImg = loadImage('assets/yellowbird-midflap.png');
