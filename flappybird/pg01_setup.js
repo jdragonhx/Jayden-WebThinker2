@@ -107,6 +107,6 @@ function spawnPipePair(){
 
     pipeGroup.add(topPipe);
 
-    topPipe = new Sprite(bird)
+    topPipe = new Sprite(bird.x + 400, midY )
     
 }
