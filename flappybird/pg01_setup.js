@@ -98,16 +98,16 @@ function draw() {
             floor.x = bird.x;
 
             if (frameCount % 90 === 0){
-            spawnPipePair();
-        }
-
-        for (let pipe of pipeGroup){
-            if (pipe.x < -50){
-                pipe.remove();
+                spawnPipePair();
             }
-        }
 
-    if (bird.collides(pipeGroup) || bird.collides(floor)){
+            for (let pipe of pipeGroup){
+                if (pipe.x < -50){
+                    pipe.remove();
+                }
+            }
+
+        if (bird.collides(pipeGroup) || bird.collides(floor)){
         gameoverLabel = new Sprite (width/2, height/2, 192, 42);
         gameoverLabel.img = gameoverImg;
         gameoverLabel.layer = 100;
