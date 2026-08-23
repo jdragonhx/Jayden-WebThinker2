@@ -7,6 +7,7 @@ let flapMidImg, bg, base;
 let gameoverImg;
 let gameoverLabel;
 
+
 function preload() {
     flapMidImg = loadImage('assets/yellowbird-midflap.png');
     flapUpImg = loadImage('assets/yellowbird-upflap.png');
