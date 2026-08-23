@@ -79,18 +79,18 @@ function draw() {
             bird.rotation = -30;
     }
     
-    else if (bird.vel.y > 1) {
-        bird.img = flapDownImg;
-        bird.rotation = 30;
+        else if (bird.vel.y > 1) {
+            bird.img = flapDownImg;
+            bird.rotation = 30;
     }
     
-    else {
-        bird.img = flapMidImg;
-        bird.rotation = 0;
+        else {
+            bird.img = flapMidImg;
+            bird.rotation = 0;
     }
 
-    if (frameCount === 1) {
-        spawnPipePair();
+        if (frameCount === 1) {
+            spawnPipePair();
     }
 
     bird.x += 3;
