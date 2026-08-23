@@ -96,6 +96,10 @@ function draw() {
         noloop();
     }
 
+    if (bird.collides(pipeGroup) || bird.collides(floor)){
+        
+    }
+
 }
 
 function spawnPipePair(){
