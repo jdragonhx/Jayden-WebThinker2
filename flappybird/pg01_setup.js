@@ -31,7 +31,7 @@ function setup() {
     bird.height = 30;
     bird.img = flapMidImg;
 
-    bird.collider = "dynamic";
+    bird.collider = "static";
     bird.mass = 2;
     bird.drag = 0.02;
     bird.bounciness = 0.5;
@@ -62,7 +62,7 @@ function draw() {
 
     if (startGame){
         
-        
+        bird.collider
         
         if (kb.presses('space')) {
             bird.vel.y = -5;
