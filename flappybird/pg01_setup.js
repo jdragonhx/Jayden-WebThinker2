@@ -62,7 +62,7 @@ function draw() {
 
     if (startGame){
         
-        bird.collider
+        bird.collider = "dynamic"
         
         if (kb.presses('space')) {
             bird.vel.y = -5;
