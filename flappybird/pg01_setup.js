@@ -58,7 +58,8 @@ function setup() {
     startScreenLabel = new Sprite(width/2, height/2, 50, 50, 'none');
     startScreenLabel.img = startScreenImg;
 
-    for let 
+    scoreDigits = new Group();
+    
 }
 
 function draw() {
