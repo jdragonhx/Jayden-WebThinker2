@@ -161,6 +161,6 @@ function drawScore(x, y, score, digitWidth, digitHeight) {
     let startX = x - totalWidth / 2;
 
     for (let i = 0; i < scoreStr.length; i++) {
-        let digit = int 
+        let digit = int(scoreStr[i])
     }
 }
