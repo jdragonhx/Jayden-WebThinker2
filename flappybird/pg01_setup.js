@@ -130,7 +130,7 @@ function draw() {
             
         }
 
-        drawScore(width/2, 20, score, 24, 36)
+        drawScore(width/2, 20, score, 24, 36);
     }
 
 }
