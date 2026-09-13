@@ -203,5 +203,3 @@ function moveGroup(group, targetX, spacing) {
         group[i].x = startX + i * spacing;
     }
 }
-
-pointAudio.play()
