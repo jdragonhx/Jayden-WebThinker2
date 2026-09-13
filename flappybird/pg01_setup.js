@@ -174,6 +174,8 @@ function spawnPipePair() {
 
     topPipe.passed = false;
 
+    pointAudio.play()
+
 }
 
 
