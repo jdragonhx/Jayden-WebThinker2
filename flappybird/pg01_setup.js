@@ -23,7 +23,7 @@ function preload() {
     gameoverImg = loadImage('assets/gameover.png');
     startScreenImg = loadImage('assets/message.png');
 
-    for(let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
         numberImages[i] = loadImage('assets/' + i + '.png')
     }
 }
@@ -55,7 +55,7 @@ function setup() {
 
     pipeGroup = new Group();
 
-    startScreenLabel = new Sprite(width/2, height/2, 50, 50, 'none');
+    startScreenLabel = new Sprite(width / 2, height / 2, 50, 50, 'none');
     startScreenLabel.img = startScreenImg;
 
     scoreDigits = new Group();
@@ -66,15 +66,15 @@ function setup() {
 function draw() {
     image(bg, 0, 0, width, height);
 
-       if (kb.presses('space') || mouse.presses()){
+    if (kb.presses('space') || mouse.presses()) {
         startGame = true;
         startScreenLabel.visible = false;
     }
 
-    if (startGame){
-        
+    if (startGame) {
+
         bird.collider = "dynamic"
-        
+
         if (kb.presses('space')) {
             bird.vel.y = -5;
             bird.sleeping = false;
@@ -84,18 +84,18 @@ function draw() {
         textSize(14)
         text('vel.y:' + bird.vel.y.toFixed(2), 10, 20)
         text('isMoving: ' + bird.isMoving, 10, 40);
-        text('sleeping:' + bird.sleeping , 10, 60);
+        text('sleeping:' + bird.sleeping, 10, 60);
 
         if (bird.vel.y < -1) {
             bird.img = flapUpImg;
             bird.rotation = -30;
         }
-    
+
         else if (bird.vel.y > 1) {
             bird.img = flapDownImg;
             bird.rotation = 30;
         }
-    
+
         else {
             bird.img = flapMidImg;
             bird.rotation = 0;
@@ -105,41 +105,41 @@ function draw() {
             spawnPipePair();
         }
 
-            bird.x += 3;
-            camera.x = bird.x;
-            floor.x = bird.x;
+        bird.x += 3;
+        camera.x = bird.x;
+        floor.x = bird.x;
 
-            if (frameCount % 90 === 0){
-                spawnPipePair();
+        if (frameCount % 90 === 0) {
+            spawnPipePair();
+        }
+
+        for (let pipe of pipeGroup) {
+            if (pipe.x < -50) {
+                pipe.remove();
             }
+        }
 
-            for (let pipe of pipeGroup){
-                if (pipe.x < -50){
-                    pipe.remove();
-                }
-            }
+        // here
 
-            // here
-
-        if (bird.collides(pipeGroup) || bird.collides(floor)){
-            gameoverLabel = new Sprite (width/2, height/2, 192, 42);
+        if (bird.collides(pipeGroup) || bird.collides(floor)) {
+            gameoverLabel = new Sprite(width / 2, height / 2, 192, 42);
             gameoverLabel.img = gameoverImg;
             gameoverLabel.layer = 100;
             gameoverLabel.x = camera.x;
 
             noLoop();
 
-            
+
         }
 
-        drawScore(width/2, 20, score, 24, 36);
+        drawScore(width / 2, 20, score, 24, 36);
 
-        
+
     }
 
 }
 
-function spawnPipePair(){
+function spawnPipePair() {
     let gap = 50;
     let midY = random(400, height - 400);
 
@@ -156,7 +156,7 @@ function spawnPipePair(){
     pipeGroup.add(topPipe);
 
     topPipe.passed = false;
-    
+
 }
 
 
@@ -176,8 +176,8 @@ function drawScore(x, y, score, digitWidth, digitHeight) {
 }
 
 function moveGroup(group, targetX, spacing) {
-    let totalWidth = (group.length -1) * spacing;
-    let startX = (targetX - totalWidth/2);
+    let totalWidth = (group.length - 1) * spacing;
+    let startX = (targetX - totalWidth / 2);
     for (let i = 0; i < group.length; i++) {
         group[i].x = startX + i * spacing;
     }
