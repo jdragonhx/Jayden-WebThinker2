@@ -148,13 +148,16 @@ function draw() {
 
             dieAudio.play();
 
-            setTimeout()
+            setTimeout(() => {
 
-            score = 0
-            startGame = false;
+                score = 0
+                startGame = false;
 
-            pipeGroup.removeAll();
-            bird.vel.x = 0;
+                pipeGroup.removeAll();
+                bird.vel.x = 0;
+
+                
+            })
 
 
             noLoop();
