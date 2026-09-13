@@ -166,7 +166,7 @@ function draw() {
                 startScreenLabel.y = height / 2 - 50;
 
                 loop();
-            })
+            }, 3000)
 
 
             noLoop();
