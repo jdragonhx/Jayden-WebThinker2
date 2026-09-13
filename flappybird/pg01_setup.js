@@ -14,6 +14,7 @@ let numberImages = [];
 let scoreDigits;
 let wingSound;
 let dieAudio;
+let 
 
 function preload() {
     flapMidImg = loadImage('assets/yellowbird-midflap.png');
