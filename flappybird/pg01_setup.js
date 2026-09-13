@@ -77,8 +77,6 @@ function draw() {
         startGame = true;
         startScreenLabel.visible = false;
         wingSound.play();
-        pointAudio.play()
-        dieAudio.play();
     }
 
     if (startGame) {
