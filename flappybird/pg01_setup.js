@@ -120,7 +120,15 @@ function draw() {
         }
 
         for(let pipe of pipeGroup) {
-            let pipeRight
+            let pipeRightEdge = pipe.x + pipe.w / 2;
+
+            let birdLeftEdge = bird.x - bird.w / 2;
+
+            if (pipe.passed == false && pipeRightEdge < birdLeftEdge) {
+                pipe.passed = true;
+                score++;
+            }
+            }
         }
 
         if (bird.collides(pipeGroup) || bird.collides(floor)) {
@@ -139,7 +147,6 @@ function draw() {
 
     }
 
-}
 
 function spawnPipePair() {
     let gap = 50;
