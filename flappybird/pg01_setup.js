@@ -151,7 +151,8 @@ function draw() {
             score = 0
             startGame = false;
 
-            pipeGroup.removeAll
+            pipeGroup.removeAll();
+            bird
 
             noLoop();
             
