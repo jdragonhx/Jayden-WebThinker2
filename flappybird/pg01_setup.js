@@ -13,6 +13,7 @@ let score = 0;
 let numberImages = [];
 let scoreDigits;
 let wingSound;
+let dieAudio
 
 function preload() {
     flapMidImg = loadImage('assets/yellowbird-midflap.png');
@@ -24,7 +25,7 @@ function preload() {
     gameoverImg = loadImage('assets/gameover.png');
     startScreenImg = loadImage('assets/message.png');
     wingSound = createAudio('sfx_wing.mp3')
-    
+
 
     for (let i = 0; i < 10; i++) {
         numberImages[i] = loadImage('assets/' + i + '.png')
