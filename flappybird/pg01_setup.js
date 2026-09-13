@@ -150,6 +150,8 @@ function spawnPipePair(){
     topPipe.rotation = 180;
 
     pipeGroup.add(topPipe);
+
+    
     
 }
 
@@ -176,4 +178,3 @@ function moveGroup(group, targetX, spacing) {
         group[i].x = startX + i * spacing;
     }
 }
-
