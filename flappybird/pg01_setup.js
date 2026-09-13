@@ -149,6 +149,8 @@ function draw() {
             dieAudio.play();
 
             noLoop();
+            
+            
 
 
         }
