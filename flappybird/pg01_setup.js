@@ -145,6 +145,8 @@ function draw() {
             gameoverLabel.layer = 100;
             gameoverLabel.x = camera.x;
 
+            dieAudio
+
             noLoop();
 
 
