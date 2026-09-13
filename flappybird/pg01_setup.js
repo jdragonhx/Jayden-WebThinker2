@@ -76,7 +76,8 @@ function draw() {
     if (kb.presses('space') || mouse.presses()) {
         startGame = true;
         startScreenLabel.visible = false;
-        wingSound.play
+        wingSound.play();
+        dieAudio
     }
 
     if (startGame) {
