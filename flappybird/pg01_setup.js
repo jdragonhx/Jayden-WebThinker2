@@ -151,7 +151,7 @@ function spawnPipePair(){
 
     pipeGroup.add(topPipe);
 
-    
+    topPipe
     
 }
 
