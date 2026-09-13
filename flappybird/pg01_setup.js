@@ -148,7 +148,8 @@ function draw() {
 
             dieAudio.play();
 
-            score
+            score = 0
+            
 
             noLoop();
             
