@@ -158,6 +158,7 @@ function draw() {
                 bird.vel.y = 0;
                 bird.rotation = 0;
                 bird.collider = 'static';
+                bird.y = 200;
             })
 
 
