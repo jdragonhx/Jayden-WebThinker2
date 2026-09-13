@@ -160,7 +160,8 @@ function draw() {
                 bird.collider = 'static';
                 bird.y = 200;
 
-                gameOverLabel
+                gameoverLabel.remove();
+                
             })
 
 
