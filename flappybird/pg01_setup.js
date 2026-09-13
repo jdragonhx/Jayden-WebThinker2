@@ -150,7 +150,8 @@ function draw() {
 
             score = 0
             startGame = false;
-            
+
+            pipeGroup.removeAll
 
             noLoop();
             
