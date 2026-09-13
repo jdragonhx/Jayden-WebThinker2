@@ -24,7 +24,8 @@ function preload() {
     pipe = loadImage('assets/pipe-green.png');
     gameoverImg = loadImage('assets/gameover.png');
     startScreenImg = loadImage('assets/message.png');
-    wingSound = createAudio('sfx_wing.mp3')
+    wingSound = createAudio('sfx_wing.mp3');
+    dieAudio 
 
 
     for (let i = 0; i < 10; i++) {
