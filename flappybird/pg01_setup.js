@@ -23,6 +23,7 @@ function preload() {
     pipe = loadImage('assets/pipe-green.png');
     gameoverImg = loadImage('assets/gameover.png');
     startScreenImg = loadImage('assets/message.png');
+    wingSound - lo
 
     for (let i = 0; i < 10; i++) {
         numberImages[i] = loadImage('assets/' + i + '.png')
