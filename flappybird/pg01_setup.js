@@ -152,7 +152,8 @@ function draw() {
             startGame = false;
 
             pipeGroup.removeAll();
-            bird
+            bird.vel.x = 0;
+            
 
             noLoop();
             
