@@ -27,7 +27,7 @@ function preload() {
     startScreenImg = loadImage('assets/message.png');
     wingSound = createAudio('assets/sfx_wing.mp3');
     dieAudio = createAudio('assets/sfx_die.mp3');
-    pointAudio = createAudio('assets/sfx_point')
+    pointAudio = createAudio('assets/sfx_point.mp3')
 
 
     for (let i = 0; i < 10; i++) {
