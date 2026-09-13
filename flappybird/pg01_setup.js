@@ -176,7 +176,7 @@ function spawnPipePair() {
 
     topPipe.passed = false;
 
-    pointAudio.play()
+    
 
 }
 
@@ -204,3 +204,4 @@ function moveGroup(group, targetX, spacing) {
     }
 }
 
+pointAudio.play()
