@@ -6,7 +6,7 @@ function preload() {
         whole: loadImage('assets/peach.png'),
         sliced: loadImage('assets/peachSliced.png')
     };
-    peach['']
+    peach['whole']
 }
 
 function setup() {
