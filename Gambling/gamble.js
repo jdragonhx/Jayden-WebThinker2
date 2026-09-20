@@ -101,11 +101,11 @@ function rollDice() {
   const win = (choice === 'high' && roll >= 4) || (choice === 'low' && roll <= 3);
 
   if (win) {
-    balance += currentBet;
-    setStatus(`You rolled a ${roll}. You won the $10 dice round!`, 'success');
+    const winnings = currentBet * 2;
+    balance += winnings;
+    setStatus(`You rolled a ${roll}. You won ${formatMoney(winnings)}!`, 'success');
   } else {
-    balance -= currentBet;
-    setStatus(`You rolled a ${roll}. You lost the $10 dice round.`, 'danger');
+    setStatus(`You rolled a ${roll}. No winnings this round, but you kept your wager.`, 'neutral');
   }
 
   if (balance < 0) {
