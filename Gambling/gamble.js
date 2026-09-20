@@ -1,4 +1,5 @@
-const STARTING_BALANCE = 100000;
+const STARTING_BALANCE = 10;
+const DICE_ENTRY_COST = 10;
 
 let balance = STARTING_BALANCE;
 let currentBet = 0;
@@ -50,8 +51,8 @@ function placeBet() {
   const betInput = document.getElementById('bet-amount');
   const betValue = Number(betInput.value);
 
-  if (!Number.isFinite(betValue) || betValue <= 0) {
-    setStatus('Enter a valid bet greater than $0.', 'warning');
+  if (betValue !== DICE_ENTRY_COST) {
+    setStatus('Dice games cost exactly $10 to play.', 'warning');
     return;
   }
 
@@ -62,6 +63,11 @@ function placeBet() {
 function rollDice() {
   if (currentBet <= 0) {
     setStatus('Place a bet first before rolling.', 'warning');
+    return;
+  }
+
+  if (balance < currentBet) {
+    setStatus('You need $10 to play the dice game.', 'warning');
     return;
   }
 
@@ -77,15 +83,14 @@ function rollDice() {
   const win = (choice === 'high' && roll >= 4) || (choice === 'low' && roll <= 3);
 
   if (win) {
-    balance += currentBet;
-    setStatus(`You rolled a ${roll}. You win ${formatMoney(currentBet)}!`, 'success');
+    setStatus(`You rolled a ${roll}. You won the $10 dice round!`, 'success');
   } else {
     balance -= currentBet;
-    setStatus(`You rolled a ${roll}. You lost ${formatMoney(currentBet)}.`, 'danger');
+    setStatus(`You rolled a ${roll}. You lost the $10 dice round.`, 'danger');
   }
 
   if (balance < 0) {
-    setStatus(`You rolled a ${roll}. You are now in debt by ${formatMoney(Math.abs(balance))}. Keep playing or reset.`, 'danger');
+    setStatus(`You rolled a ${roll}. Your balance is now ${formatMoney(balance)}.`, 'danger');
   }
 
   currentBet = 0;
@@ -125,7 +130,7 @@ function resetGame() {
   radioButtons.forEach((radio) => {
     radio.checked = radio.value === 'high';
   });
-  setStatus('New game started. Bankroll reset to $100,000.', 'neutral');
+  setStatus('New game started. Bankroll reset to $10.', 'neutral');
 }
 
 function buildGame() {
@@ -346,7 +351,7 @@ function buildGame() {
 
       <div class="row">
         <span class="label">Balance</span>
-        <span id="balance" class="value">$100,000</span>
+        <span id="balance" class="value">$10</span>
       </div>
 
       <div class="row">
@@ -360,7 +365,7 @@ function buildGame() {
       </div>
 
       <div class="controls">
-        <input id="bet-amount" type="number" min="1" step="1" placeholder="Choose your bet amount" />
+        <input id="bet-amount" type="number" min="10" max="10" step="10" placeholder="Enter $10 to play" />
 
         <div class="guess-row">
           <label><input type="radio" name="guess" value="high" checked /> High (4-6)</label>
