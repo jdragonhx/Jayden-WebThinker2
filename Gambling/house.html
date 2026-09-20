@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your House</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root { --paper: #f4e8d0; --wood: #75452d; --ink: #2d1c17; --accent: #b74d3e; }
+    body { min-height: 100vh; box-sizing: border-box; margin: 0; padding: 28px 18px; background: linear-gradient(135deg, #e4b878, #8cbd9b); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+    .house-shell { width: min(100%, 920px); margin: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+    h1 { margin: 0; color: #4b2b20; font-size: clamp(2rem, 5vw, 3.4rem); }
+    header a { color: #4b2b20; font-weight: bold; }
+    .room { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 18px; }
+    .scene { position: relative; min-height: 500px; overflow: hidden; border: 8px solid var(--wood); border-radius: 12px; background: linear-gradient(#f8dcae 0 68%, #a8653e 68%); box-shadow: 0 14px 25px rgba(45, 28, 23, 0.25); }
+    .scene::before { content: ''; position: absolute; top: 13%; left: 12%; width: 22%; height: 18%; border: 8px solid var(--wood); background: #a9dce0; box-shadow: inset 0 0 0 6px #d9f2e7; }
+    .scene::after { content: ''; position: absolute; right: 9%; bottom: 0; width: 18%; height: 50%; background: #6c3d2b; border: 6px solid #4b2b20; border-bottom: 0; }
+    .item { position: absolute; z-index: 1; transition: transform 0.2s ease; }
+    .item:hover { transform: scale(1.08); }
+    .sofa { left: 16%; bottom: 12%; width: 32%; height: 14%; border-radius: 16px 16px 6px 6px; background: var(--accent); box-shadow: 0 14px 0 #713127; }
+    .plant { left: 60%; bottom: 13%; font-size: 4rem; }
+    .lamp { top: 12%; right: 26%; font-size: 3.6rem; }
+    .painting { top: 22%; right: 11%; font-size: 3.5rem; }
+    .rug { left: 27%; bottom: 2%; width: 42%; height: 10%; border-radius: 50%; background: #d5ad47; border: 5px solid #8c5c2c; }
+    .controls { padding: 20px; border: 3px solid #c99d58; border-radius: 10px; background: var(--paper); box-shadow: 0 8px 16px rgba(45, 28, 23, 0.15); }
+    .controls h2 { margin-top: 0; font-size: 1.35rem; }
+    .controls p { margin-top: 0; line-height: 1.4; }
+    .choices { display: grid; gap: 9px; }
+    button { border: 2px solid #743528; border-radius: 7px; padding: 10px; background: #fffaf0; color: var(--ink); cursor: pointer; font: inherit; text-align: left; }
+    button:hover, button:focus-visible { background: #f5c875; }
+    .status { min-height: 42px; margin-top: 16px; color: #743528; font-weight: bold; }
+    @media (max-width: 700px) { header { align-items: flex-start; flex-direction: column; } .room { grid-template-columns: 1fr; } .scene { min-height: 420px; } }
+  </style>
+</head>
+<body>
+  <main class="house-shell">
+    <header>
+      <h1>Your House</h1>
+      <a href="map.html">&#8592; Back to Casino Map</a>
+    </header>
+    <section class="room">
+      <div class="scene" id="scene" aria-label="Your decorated living room">
+        <div class="item sofa" title="Sofa"></div>
+        <div class="item plant" title="Plant">&#127793;</div>
+        <div class="item lamp" title="Lamp">&#128161;</div>
+        <div class="item painting" title="Painting">&#127912;</div>
+        <div class="item rug" title="Rug"></div>
+      </div>
+      <aside class="controls">
+        <h2>Decorate</h2>
+        <p>Choose a new accent for your living room.</p>
+        <div class="choices">
+          <button type="button" data-decor="sofa">Change sofa</button>
+          <button type="button" data-decor="plant">Move plant</button>
+          <button type="button" data-decor="lamp">Switch lamp</button>
+          <button type="button" data-decor="painting">Change painting</button>
+          <button type="button" data-decor="rug">Change rug</button>
+        </div>
+        <div class="status" id="status" aria-live="polite">Your house is ready for a makeover.</div>
+      </aside>
+    </section>
+  </main>
+  <script>
+    const status = document.getElementById('status');
+    const colors = { sofa: ['#b74d3e', '#3b7a70', '#a86239'], plant: ['#6fae62', '#4f8d75', '#c98d4b'], lamp: ['#f2c65d', '#e38e5c', '#b8d8d8'], painting: ['#7c5ca8', '#d46a4c', '#468c8c'], rug: ['#d5ad47', '#bf6570', '#6b90a5'] };
+    document.querySelectorAll('[data-decor]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const type = button.dataset.decor;
+        const item = document.querySelector('.' + type);
+        const palette = colors[type];
+        const nextColor = palette[Math.floor(Math.random() * palette.length)];
+        item.style.background = nextColor;
+        status.textContent = type.charAt(0).toUpperCase() + type.slice(1) + ' updated.';
+      });
+    });
+  </script>
+</body>
+</html>

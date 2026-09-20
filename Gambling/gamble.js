@@ -122,6 +122,24 @@ function buildGame() {
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
     }
 
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .top-nav a {
+      color: #fde68a;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .top-nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
     h1 {
       margin-top: 0;
       text-align: center;
@@ -239,6 +257,10 @@ function buildGame() {
 
   document.body.innerHTML = `
     <div class="game">
+      <nav class="top-nav">
+        <a href="map.html">Casino Map</a>
+        <a href="../index.html">Home</a>
+      </nav>
       <h1>Lucky Dice Casino</h1>
 
       <div class="row">

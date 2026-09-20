@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Dice Casino Map</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --ink: #fff7e6;
+      --gold: #f6c453;
+      --red: #9d2933;
+      --deep-red: #4a1019;
+      --green: #0e5b4b;
+    }
+
+    body {
+      min-height: 100vh;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 32px 20px;
+      background: radial-gradient(circle at 50% 0%, #8b2330 0, #3b1018 45%, #15080d 100%);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .map-shell { width: min(100%, 980px); margin: auto; }
+
+    .map-header { text-align: center; margin-bottom: 28px; }
+    .map-header h1 { margin: 0; color: var(--gold); font-size: clamp(2.2rem, 6vw, 4.5rem); letter-spacing: 0.08em; text-transform: uppercase; }
+    .map-header p { margin: 10px 0 0; color: #f7dca0; font-size: 1.1rem; }
+
+    .map-board {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 6vw, 64px);
+      border: 3px solid var(--gold);
+      border-radius: 18px;
+      background: #145d4c;
+      box-shadow: inset 0 0 0 10px #0c4237, 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .map-board::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 2px dashed rgba(246, 196, 83, 0.55);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .map-path {
+      position: absolute;
+      top: 50%;
+      left: 14%;
+      right: 14%;
+      height: 18px;
+      transform: translateY(-50%);
+      background: #d7a84d;
+      box-shadow: 0 0 0 5px rgba(74, 16, 25, 0.45);
+    }
+
+    .destinations { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 8vw, 100px); }
+
+    .destination {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 230px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px;
+      border: 3px solid var(--gold);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #7f202b, var(--deep-red));
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 10px 0 #310c13, 0 16px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .destination:hover { transform: translateY(-8px); filter: brightness(1.15); }
+    .destination .icon { font-size: 3.8rem; line-height: 1; }
+    .destination strong { color: var(--gold); font-size: 1.55rem; }
+    .destination span:last-child { color: #f5d9a1; font-size: 1rem; }
+
+    .map-footer { margin-top: 24px; text-align: center; }
+    .map-footer a { color: #f7dca0; }
+
+    @media (max-width: 620px) {
+      .destinations { grid-template-columns: 1fr; }
+      .map-path { top: 25%; bottom: 25%; left: 50%; right: auto; width: 18px; height: auto; transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <main class="map-shell">
+    <header class="map-header">
+      <h1>Casino District</h1>
+      <p>Choose your destination</p>
+    </header>
+
+    <section class="map-board" aria-label="Casino map">
+      <div class="map-path" aria-hidden="true"></div>
+      <div class="destinations">
+        <a class="destination" href="index.html">
+          <span class="icon" aria-hidden="true">&#127922;</span>
+          <strong>Lucky Dice Casino</strong>
+          <span>Enter the gambling room</span>
+        </a>
+        <a class="destination" href="house.html">
+          <span class="icon" aria-hidden="true">&#127968;</span>
+          <strong>Your House</strong>
+          <span>Teleport home and decorate</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="map-footer"><a href="../index.html">Back to Home</a></div>
+  </main>
+</body>
+</html>
