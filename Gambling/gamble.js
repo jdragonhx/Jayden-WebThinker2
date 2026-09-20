@@ -3,6 +3,7 @@ const STARTING_BALANCE = 100000;
 let balance = STARTING_BALANCE;
 let currentBet = 0;
 let lastRoll = 1;
+let slotValues = ['7', '7', '7'];
 let statusMessage = "Choose a bet and roll the dice.";
 let statusType = "neutral";
 
@@ -27,6 +28,11 @@ function updateDisplays() {
   if (balanceEl) balanceEl.textContent = formatMoney(balance);
   if (betEl) betEl.textContent = formatMoney(currentBet);
   if (rollEl) rollEl.textContent = `Dice: ${lastRoll}`;
+
+  const slotEls = document.querySelectorAll('.slot-value');
+  slotEls.forEach((slotEl, index) => {
+    slotEl.textContent = slotValues[index];
+  });
 
   if (statusEl) {
     statusEl.textContent = statusMessage;
@@ -87,10 +93,33 @@ function rollDice() {
   updateDisplays();
 }
 
+function spinSlots() {
+  const spinCost = 50;
+  const jackpot = 100000;
+
+  if (balance < spinCost) {
+    setStatus('You need at least $50 to spin the slot machine.', 'warning');
+    return;
+  }
+
+  balance -= spinCost;
+  slotValues = [String(randomInt(1, 9)), String(randomInt(1, 9)), String(randomInt(1, 9))];
+
+  if (slotValues.every((value) => value === '7')) {
+    balance += jackpot;
+    setStatus('JACKPOT! You matched 777 and won $100,000!', 'success');
+  } else {
+    setStatus(`The reels show ${slotValues.join(' - ')}. The $50 spin cost was paid.`, 'danger');
+  }
+
+  updateDisplays();
+}
+
 function resetGame() {
   balance = STARTING_BALANCE;
   currentBet = 0;
   lastRoll = 1;
+  slotValues = ['7', '7', '7'];
   document.getElementById('bet-amount').value = '';
   const radioButtons = document.querySelectorAll('input[name="guess"]');
   radioButtons.forEach((radio) => {
@@ -243,6 +272,50 @@ function buildGame() {
       color: white;
     }
 
+    .slot-machine {
+      padding: 18px;
+      border: 2px solid #fbbf24;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #7f202b, #450f18);
+      text-align: center;
+    }
+
+    .slot-machine h2 {
+      margin: 0 0 6px;
+      color: #fde68a;
+      font-size: 1.3rem;
+    }
+
+    .slot-machine p {
+      margin: 0 0 14px;
+      color: #fee2e2;
+    }
+
+    .slot-reels {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .slot-value {
+      display: grid;
+      width: 64px;
+      height: 72px;
+      place-items: center;
+      border: 4px solid #fbbf24;
+      border-radius: 8px;
+      background: #fff7ed;
+      color: #7f1d1d;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .slot-btn {
+      background: #f59e0b;
+      color: #451a03;
+    }
+
     .status {
       margin-top: 18px;
       padding: 12px 14px;
@@ -301,12 +374,24 @@ function buildGame() {
         </div>
       </div>
 
+      <section class="slot-machine" aria-labelledby="slot-title">
+        <h2 id="slot-title">Lucky 777 Slots</h2>
+        <p>Spin for $50. Match 777 to win $100,000!</p>
+        <div class="slot-reels" aria-label="Slot machine reels">
+          <span class="slot-value">7</span>
+          <span class="slot-value">7</span>
+          <span class="slot-value">7</span>
+        </div>
+        <button class="slot-btn" id="spin-slots">Spin Slots - $50</button>
+      </section>
+
       <div id="status" class="status neutral">Choose a bet and roll the dice.</div>
     </div>
   `;
 
   document.getElementById('place-bet').addEventListener('click', placeBet);
   document.getElementById('roll-dice').addEventListener('click', rollDice);
+  document.getElementById('spin-slots').addEventListener('click', spinSlots);
   document.getElementById('reset-game').addEventListener('click', resetGame);
 
   updateDisplays();
