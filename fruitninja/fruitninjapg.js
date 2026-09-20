@@ -4,5 +4,5 @@ function preload() {
 
 function setup() {
     createCanvas(800, 600);
-    would.grvity.grvity
+    would.grvity.y = 10;
 }
