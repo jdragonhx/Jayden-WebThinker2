@@ -49,16 +49,6 @@ function placeBet() {
     return;
   }
 
-  if (betValue > balance && balance > 0) {
-    setStatus('You cannot bet more than your current balance while solvent.', 'warning');
-    return;
-  }
-
-  if (balance < 0 && betValue > Math.abs(balance) * 2) {
-    setStatus('You are already in debt. The table limits you to a larger bet based on your debt.', 'warning');
-    return;
-  }
-
   currentBet = betValue;
   setStatus(`You are betting ${formatMoney(currentBet)}. Press roll to play.`, 'success');
 }
