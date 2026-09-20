@@ -5,6 +5,7 @@ let balance = STARTING_BALANCE;
 let currentBet = 0;
 let lastRoll = 1;
 let slotValues = ['7', '7', '7'];
+let diceReady = false;
 let statusMessage = "Choose a bet and roll the dice.";
 let statusType = "neutral";
 
@@ -48,16 +49,38 @@ function setStatus(message, type = 'neutral') {
 }
 
 function placeBet() {
+  if (!diceReady) {
+    setStatus('Type $10 and enter the dice room first.', 'warning');
+    return;
+  }
+
   const betInput = document.getElementById('bet-amount');
   const betValue = Number(betInput.value);
 
-  if (betValue !== DICE_ENTRY_COST) {
-    setStatus('Dice games cost exactly $10 to play.', 'warning');
+  if (!Number.isFinite(betValue) || betValue <= 0 || betValue > balance) {
+    setStatus(`Choose a wager between $1 and ${formatMoney(balance)}.`, 'warning');
     return;
   }
 
   currentBet = betValue;
   setStatus(`You are betting ${formatMoney(currentBet)}. Press roll to play.`, 'success');
+}
+
+function enterDiceRoom() {
+  const entryInput = document.getElementById('entry-amount');
+  const entryValue = Number(entryInput.value);
+
+  if (entryValue !== DICE_ENTRY_COST) {
+    setStatus('Type exactly $10 to enter the dice room.', 'warning');
+    return;
+  }
+
+  diceReady = true;
+  entryInput.disabled = true;
+  document.getElementById('enter-dice').disabled = true;
+  document.getElementById('bet-amount').disabled = false;
+  document.getElementById('place-bet').disabled = false;
+  setStatus('Dice room unlocked. Choose how much you want to gamble.', 'neutral');
 }
 
 function rollDice() {
@@ -67,7 +90,7 @@ function rollDice() {
   }
 
   if (balance < currentBet) {
-    setStatus('You need $10 to play the dice game.', 'warning');
+    setStatus(`You need ${formatMoney(currentBet)} to play this round.`, 'warning');
     return;
   }
 
@@ -126,7 +149,13 @@ function resetGame() {
   currentBet = 0;
   lastRoll = 1;
   slotValues = ['7', '7', '7'];
+  diceReady = false;
   document.getElementById('bet-amount').value = '';
+  document.getElementById('bet-amount').disabled = true;
+  document.getElementById('place-bet').disabled = true;
+  document.getElementById('entry-amount').value = '';
+  document.getElementById('entry-amount').disabled = false;
+  document.getElementById('enter-dice').disabled = false;
   const radioButtons = document.querySelectorAll('input[name="guess"]');
   radioButtons.forEach((radio) => {
     radio.checked = radio.value === 'high';
@@ -219,6 +248,18 @@ function buildGame() {
       border-radius: 10px;
       border: 1px solid #94a3b8;
       font-size: 1rem;
+    }
+
+    .entry-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    button:disabled,
+    input:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
     }
 
     .guess-row {
@@ -366,7 +407,12 @@ function buildGame() {
       </div>
 
       <div class="controls">
-        <input id="bet-amount" type="number" min="10" max="10" step="10" placeholder="Enter $10 to play" />
+        <div class="entry-row">
+          <input id="entry-amount" type="number" min="10" max="10" step="10" placeholder="Type $10 to enter" />
+          <button class="bet-btn" id="enter-dice">Enter Dice Room</button>
+        </div>
+
+        <input id="bet-amount" type="number" min="1" step="1" placeholder="Choose your wager" disabled />
 
         <div class="guess-row">
           <label><input type="radio" name="guess" value="high" checked /> High (4-6)</label>
@@ -374,7 +420,7 @@ function buildGame() {
         </div>
 
         <div class="button-row">
-          <button class="bet-btn" id="place-bet">Place Bet</button>
+          <button class="bet-btn" id="place-bet" disabled>Place Bet</button>
           <button class="roll-btn" id="roll-dice">Roll Dice</button>
           <button class="reset-btn" id="reset-game">Reset Bank</button>
         </div>
@@ -396,6 +442,7 @@ function buildGame() {
   `;
 
   document.getElementById('place-bet').addEventListener('click', placeBet);
+  document.getElementById('enter-dice').addEventListener('click', enterDiceRoom);
   document.getElementById('roll-dice').addEventListener('click', rollDice);
   document.getElementById('spin-slots').addEventListener('click', spinSlots);
   document.getElementById('reset-game').addEventListener('click', resetGame);
