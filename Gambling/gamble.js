@@ -105,7 +105,8 @@ function rollDice() {
     balance += winnings;
     setStatus(`You rolled a ${roll}. You won ${formatMoney(winnings)}!`, 'success');
   } else {
-    setStatus(`You rolled a ${roll}. No winnings this round, but you kept your wager.`, 'neutral');
+    balance -= currentBet;
+    setStatus(`You rolled a ${roll}. You lost ${formatMoney(currentBet)}.`, 'danger');
   }
 
   if (balance < 0) {
