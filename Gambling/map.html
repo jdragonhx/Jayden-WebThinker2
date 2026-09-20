@@ -143,7 +143,7 @@
     <div class="map-footer">
       <a href="../index.html">Back to Home</a>
       <br>
-      <button class="music-toggle" id="music-toggle" type="button">&#9835; Play Listening Music</button>
+      <button class="music-toggle" id="music-toggle" type="button">&#9835; Background Music</button>
     </div>
   </main>
   <script>
@@ -181,14 +181,14 @@
       if (musicPlaying) {
         musicPlaying = false;
         clearInterval(musicTimer);
-        musicButton.innerHTML = '&#9835; Play Listening Music';
+        musicButton.innerHTML = '&#9835; Background Music';
         return;
       }
       audioContext.resume();
       musicPlaying = true;
       playMusicStep();
       musicTimer = setInterval(playMusicStep, 900);
-      musicButton.innerHTML = '&#10074;&#10074; Pause Listening Music';
+      musicButton.innerHTML = '&#10074;&#10074; Pause Background Music';
     });
   </script>
 </body>
