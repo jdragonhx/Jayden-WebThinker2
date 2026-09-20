@@ -4,5 +4,9 @@ function preload() {
 
 function setup() {
     createCanvas(800, 600);
-    would.grvity.y = 10;
+    world.gravity.y = 10;
+}
+
+function draw() {
+    image(dojoBG, 0, 0, width, height);
 }
