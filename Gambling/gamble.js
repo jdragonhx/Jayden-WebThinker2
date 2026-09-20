@@ -57,8 +57,8 @@ function placeBet() {
   const betInput = document.getElementById('bet-amount');
   const betValue = Number(betInput.value);
 
-  if (!Number.isFinite(betValue) || betValue <= 0 || betValue > balance) {
-    setStatus(`Choose a wager between $1 and ${formatMoney(balance)}.`, 'warning');
+  if (!Number.isFinite(betValue) || betValue <= 0) {
+    setStatus('Enter a wager greater than $0.', 'warning');
     return;
   }
 
@@ -86,11 +86,6 @@ function enterDiceRoom() {
 function rollDice() {
   if (currentBet <= 0) {
     setStatus('Place a bet first before rolling.', 'warning');
-    return;
-  }
-
-  if (balance < currentBet) {
-    setStatus(`You need ${formatMoney(currentBet)} to play this round.`, 'warning');
     return;
   }
 
@@ -412,7 +407,7 @@ function buildGame() {
           <button class="bet-btn" id="enter-dice">Enter Dice Room</button>
         </div>
 
-        <input id="bet-amount" type="number" min="1" step="1" placeholder="Choose your wager" disabled />
+        <input id="bet-amount" type="number" step="1" placeholder="Choose any wager" disabled />
 
         <div class="guess-row">
           <label><input type="radio" name="guess" value="high" checked /> High (4-6)</label>
