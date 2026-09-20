@@ -83,6 +83,7 @@ function rollDice() {
   const win = (choice === 'high' && roll >= 4) || (choice === 'low' && roll <= 3);
 
   if (win) {
+    balance += currentBet;
     setStatus(`You rolled a ${roll}. You won the $10 dice round!`, 'success');
   } else {
     balance -= currentBet;
