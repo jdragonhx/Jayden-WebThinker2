@@ -1,7 +1,7 @@
 let dojoBG;
 let peach;
 let watermelon;
-let fruitTypes =[];
+let fruitTypes = [];
 let fruitGroup;
 
 function preload() {
