@@ -49,8 +49,13 @@ function placeBet() {
     return;
   }
 
-  if (betValue > balance) {
-    setStatus('You cannot bet more than your current balance.', 'warning');
+  if (betValue > balance && balance > 0) {
+    setStatus('You cannot bet more than your current balance while solvent.', 'warning');
+    return;
+  }
+
+  if (balance < 0 && betValue > Math.abs(balance) * 2) {
+    setStatus('You are already in debt. The table limits you to a larger bet based on your debt.', 'warning');
     return;
   }
 
@@ -83,8 +88,8 @@ function rollDice() {
     setStatus(`You rolled a ${roll}. You lost ${formatMoney(currentBet)}.`, 'danger');
   }
 
-  if (balance <= 0) {
-    setStatus('You are out of cash. Reset the game to play again.', 'danger');
+  if (balance < 0) {
+    setStatus(`You rolled a ${roll}. You are now in debt by ${formatMoney(Math.abs(balance))}. Keep playing or reset.`, 'danger');
   }
 
   currentBet = 0;
