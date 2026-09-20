@@ -4,6 +4,5 @@ function preload() {
 
 function setup() {
     createCanvas(800, 600);
-    fruitninja = new FruitNinja();
-    fruitninja.setup();
+    would.grvity.grvity
 }
