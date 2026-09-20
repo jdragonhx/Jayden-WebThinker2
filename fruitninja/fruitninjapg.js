@@ -5,6 +5,12 @@ function preload() {
     peach = {
         whole: loadImage('assets/peach.png')
     };
+    watermelon = {
+        whole: loadImage('assets/watermelon.png')
+    };
+    banana = {
+        whole: loadImage('assets/banana.png')
+    };
     peach['whole']
 }
 
