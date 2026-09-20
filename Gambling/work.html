@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Room - Grade 5 Math</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root { --paper: #f5ecd8; --ink: #30251d; --wood: #6b4431; --green: #315f4d; --gold: #c28a2d; --red: #8d3028; }
+    body { min-height: 100vh; box-sizing: border-box; margin: 0; padding: 28px 18px; background: linear-gradient(135deg, #adc9b1, #dcbf86); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+    .work-shell { width: min(100%, 760px); margin: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+    h1 { margin: 0; color: #244938; font-size: clamp(2rem, 5vw, 3.5rem); }
+    header a { color: #244938; font-weight: bold; }
+    .work-card { padding: clamp(22px, 5vw, 44px); border: 8px solid var(--wood); border-radius: 10px; background: var(--paper); box-shadow: 0 14px 25px rgba(48, 37, 29, 0.25); }
+    .wallet { display: flex; justify-content: space-between; gap: 14px; padding: 14px 16px; border: 2px solid var(--gold); border-radius: 6px; background: #fff8e9; font-size: 1.15rem; font-weight: bold; }
+    .wallet strong { color: var(--green); }
+    .instructions { color: #604a35; line-height: 1.5; }
+    .question-box { margin-top: 26px; padding: 24px; border: 3px solid var(--green); border-radius: 8px; background: #e4f0df; text-align: center; }
+    .question-label { margin: 0 0 10px; color: var(--green); font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; }
+    .question { min-height: 48px; margin: 0 0 20px; font-size: clamp(1.5rem, 5vw, 2.25rem); font-weight: bold; }
+    .answer-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    input { width: min(100%, 220px); box-sizing: border-box; padding: 12px; border: 2px solid #a58a62; border-radius: 5px; background: #fff; color: var(--ink); font: inherit; font-size: 1.15rem; text-align: center; }
+    button { padding: 12px 18px; border: 0; border-radius: 5px; background: var(--green); color: white; cursor: pointer; font: inherit; font-weight: bold; }
+    button:hover, button:focus-visible { background: #244938; }
+    .new-question { margin-top: 14px; background: var(--red); }
+    .new-question:hover, .new-question:focus-visible { background: #6b211e; }
+    .status { min-height: 28px; margin: 18px 0 0; font-weight: bold; }
+    .status.success { color: var(--green); }
+    .status.warning { color: var(--red); }
+    .recent { margin-top: 24px; color: #604a35; }
+    @media (max-width: 560px) { header { align-items: flex-start; flex-direction: column; } .wallet { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <main class="work-shell">
+    <header>
+      <h1>Work Room</h1>
+      <a href="map.html">&#8592; Back to Dungeon Map</a>
+    </header>
+    <section class="work-card">
+      <div class="wallet"><span>Work earnings</span><strong id="money">$0</strong></div>
+      <p class="instructions">Solve a Grade 5 maths question correctly to earn $10. Take your time and check your working.</p>
+      <div class="question-box">
+        <p class="question-label">Your question</p>
+        <p class="question" id="question">Loading question...</p>
+        <div class="answer-row">
+          <input id="answer" type="number" inputmode="numeric" aria-label="Your answer" placeholder="Answer">
+          <button id="submit" type="button">Submit Answer</button>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+        <button class="new-question" id="new-question" type="button">New Question</button>
+      </div>
+      <p class="recent" id="score">Questions solved: 0</p>
+    </section>
+  </main>
+  <script>
+    const moneyElement = document.getElementById('money');
+    const questionElement = document.getElementById('question');
+    const answerElement = document.getElementById('answer');
+    const statusElement = document.getElementById('status');
+    const scoreElement = document.getElementById('score');
+    const savedMoney = Number(localStorage.getItem('workMoney'));
+    let money = Number.isFinite(savedMoney) ? savedMoney : 0;
+    let solved = 0;
+    let currentAnswer = 0;
+
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function formatMoney(amount) {
+      return '$' + amount.toLocaleString('en-US');
+    }
+
+    function updateWallet() {
+      moneyElement.textContent = formatMoney(money);
+      scoreElement.textContent = 'Questions solved: ' + solved;
+      localStorage.setItem('workMoney', String(money));
+    }
+
+    function createQuestion() {
+      const type = randomInt(1, 4);
+      const first = randomInt(2, 25);
+      const second = randomInt(2, 12);
+      if (type === 1) {
+        currentAnswer = first * second;
+        questionElement.textContent = first + ' x ' + second + ' = ?';
+      } else if (type === 2) {
+        currentAnswer = second;
+        questionElement.textContent = (first * second) + ' / ' + first + ' = ?';
+      } else if (type === 3) {
+        const larger = first * second;
+        currentAnswer = larger - first;
+        questionElement.textContent = larger + ' - ' + first + ' = ?';
+      } else {
+        currentAnswer = first + second;
+        questionElement.textContent = first + ' + ' + second + ' = ?';
+      }
+      answerElement.value = '';
+      answerElement.focus();
+    }
+
+    function submitAnswer() {
+      const answer = Number(answerElement.value);
+      if (!Number.isFinite(answer) || answerElement.value.trim() === '') {
+        statusElement.className = 'status warning';
+        statusElement.textContent = 'Enter an answer first.';
+        return;
+      }
+      if (answer === currentAnswer) {
+        money += 10;
+        solved += 1;
+        statusElement.className = 'status success';
+        statusElement.textContent = 'Correct! You earned $10.';
+        updateWallet();
+        createQuestion();
+      } else {
+        statusElement.className = 'status warning';
+        statusElement.textContent = 'Not quite. Check your working and try again.';
+      }
+    }
+
+    document.getElementById('submit').addEventListener('click', submitAnswer);
+    document.getElementById('new-question').addEventListener('click', createQuestion);
+    answerElement.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') submitAnswer();
+    });
+    updateWallet();
+    createQuestion();
+  </script>
+</body>
+</html>
