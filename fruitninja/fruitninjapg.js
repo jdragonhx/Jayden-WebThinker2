@@ -4,7 +4,7 @@ function preload() {
     dojoBG = loadImage('assets/dojobackground.png');
     peach = {
         whole: loadImage('assets/peach.png'),
-        sliced: loadImage('assets/peach_sliced.png')
+        sliced: loadImage('assets/peachSliced.png')
     }
 }
 
