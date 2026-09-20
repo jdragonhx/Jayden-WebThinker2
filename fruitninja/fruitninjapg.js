@@ -3,8 +3,7 @@ let dojoBG;
 function preload() {
     dojoBG = loadImage('assets/dojobackground.png');
     peach = {
-        whole: loadImage('assets/peach.png'),
-        sliced: loadImage('assets/peachSliced.png')
+        whole: loadImage('assets/peach.png')
     };
     peach['whole']
 }
