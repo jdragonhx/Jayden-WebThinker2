@@ -221,4 +221,3 @@ function draw() {
     text("Player: " + playerScore, 10, 30);
     text("Computer: " + computerScore, 10, 70);
     }
-    
