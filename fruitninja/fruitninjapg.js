@@ -52,6 +52,6 @@ function sliceFruit() {
         if (fruit.slice) {
             continue;
         }
-        let d = dist
+        let d = dist(mouse.x, mouse.y, fruit)
     }
 }
