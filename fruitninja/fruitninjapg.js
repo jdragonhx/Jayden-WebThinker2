@@ -47,4 +47,6 @@ function spawnFruit() {
     fruitGroup.add(fruit);
 }
 
-function sliceFruit() 
+function sliceFruit() {
+    for (let fruit of fruitGroup) {}
+}
