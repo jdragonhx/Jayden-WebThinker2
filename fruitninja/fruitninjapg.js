@@ -25,5 +25,5 @@ function draw() {
 }
 
 function spawnFruit() {
-    
+    let fruitData
 }
