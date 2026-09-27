@@ -3,7 +3,7 @@ let peach;
 let watermelon;
 let fruitTypes = [];
 let fruitGroup;
-let fruitHalves
+let fruitHalves;
 
 function preload() {
     dojoBG = loadImage('assets/dojobackground.png');
@@ -24,6 +24,7 @@ function setup() {
     createCanvas(800, 600);
     world.gravity.y = 10;
     fruitGroup = new Group();
+    fruitHalves
 }
 
 function draw() {
