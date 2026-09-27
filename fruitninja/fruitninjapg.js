@@ -22,6 +22,7 @@ function setup() {
 
 function draw() {
     image(dojoBG, 0, 0, width, height);
+    
 }
 
 function spawnFruit() {
@@ -32,5 +33,5 @@ function spawnFruit() {
     fruit.type = fruitData;
     fruit.vel.y = random(-10, -14);
     fruit.vel.x = random(-2, 2);
-    fruit
+    fruit.friction = 0;
 }
