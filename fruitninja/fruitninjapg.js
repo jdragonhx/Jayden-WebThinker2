@@ -78,5 +78,6 @@ function splitFruit(x, y, fruitData) {
     left.vel.x = random(-5, -2);
     left.rotationSpeed = -5;
     left.life = 30;
-    
+
+    let right = new fruitHal
 }
