@@ -26,8 +26,8 @@ function draw() {
     if (frameCount % 120 === 0) {
         spawnFruit();
     }
-    if (MouseEvent.pressing()) {
-        let trail
+    if (mouse.pressing()) {
+        let trail = new Sprite
     }
 
 }
