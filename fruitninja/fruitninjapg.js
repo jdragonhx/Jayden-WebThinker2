@@ -71,3 +71,7 @@ function sliceFruit() {
         }
     }
 }
+
+function splitFruit(x, y, fruitData) {
+    
+}
