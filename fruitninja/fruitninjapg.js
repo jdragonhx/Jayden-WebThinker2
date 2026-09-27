@@ -3,6 +3,7 @@ let peach;
 let watermelon;
 let fruitTypes = [];
 let fruitGroup;
+let fruit;
 
 function preload() {
     dojoBG = loadImage('assets/dojobackground.png');
