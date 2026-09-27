@@ -24,7 +24,7 @@ function setup() {
     createCanvas(800, 600);
     world.gravity.y = 10;
     fruitGroup = new Group();
-    fruitHalves
+    fruitHalves = new Group();
 }
 
 function draw() {
