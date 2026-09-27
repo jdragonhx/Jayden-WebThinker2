@@ -65,6 +65,7 @@ function sliceFruit() {
         if (d < ((fruit.d/2) + 3)) {
             fruit.sliced = true;
             fruit.remove();
+            SLIY
         }
     }
 }
