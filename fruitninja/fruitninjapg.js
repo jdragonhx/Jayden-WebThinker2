@@ -79,5 +79,5 @@ function splitFruit(x, y, fruitData) {
     left.rotationSpeed = -5;
     left.life = 30;
 
-    let right = new fruitHal
+    let right = new fruitHalvess.Spite
 }
