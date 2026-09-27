@@ -64,7 +64,7 @@ function sliceFruit() {
 
         if (d < ((fruit.d/2) + 3)) {
             fruit.sliced = true;
-            
+            const fx = fruitx
             fruit.remove();
             splitFruit(fx, fy, fruit.type);
         }
