@@ -23,3 +23,7 @@ function setup() {
 function draw() {
     image(dojoBG, 0, 0, width, height);
 }
+
+function spawnFruit() {
+    
+}
