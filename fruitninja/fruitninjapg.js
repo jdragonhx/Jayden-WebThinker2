@@ -25,5 +25,6 @@ function draw() {
 }
 
 function spawnFruit() {
-    let fruitData = random(fruitTypes)
+    let fruitData = random(fruitTypes);
+    let randomX
 }
