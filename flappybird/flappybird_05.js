@@ -185,8 +185,8 @@ function drawScore(x, y, score, digitWidth, digitHeight) {
 }
 
 function moveGroup(group, targetX, spacing) {
-    let totalWidth = (group.length - 1) * spacing;
-    let startX = (targetX - totalWidth / 2);
+    let totalWidth = group.length * spacing;  // Change this line
+    let startX = targetX - totalWidth / 2;    // Change this line too
     for (let i = 0; i < group.length; i++) {
         group[i].x = startX + i * spacing;
     }
