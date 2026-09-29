@@ -1,4 +1,4 @@
-pipe;
+let pipe;
 let bottomPipe;
 let topPipe;
 let pipeGroup;
